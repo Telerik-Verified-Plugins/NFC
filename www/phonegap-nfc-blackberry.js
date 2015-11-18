@@ -49,6 +49,12 @@ nfc.unshare = function(success, failure) {
     }
 };
 
+// clobber existing showSettings function
+nfc.showSettings = function(success, failure) {
+    "use strict";
+    blackberry.invoke.invoke({ uri: "settings://nfc" }, success, failure);
+}
+
 // takes an ndefMessage from the success callback and fires a javascript event
 var proxy = function(ndefMessageAsString) {
     "use strict";
@@ -65,6 +71,6 @@ var proxy = function(ndefMessageAsString) {
 nfc.addNdefListener = function (callback, success, failure) {
     "use strict";
     document.addEventListener("ndef", callback, false);
-    cordova.exec(proxy, failure, "com.chariotsolutions.nfc.plugin", "registerNdef", []);
+    cordova.exec(proxy, failure, "phonegap-nfc", "registerNdef", []);
     success(); // assume success
 };

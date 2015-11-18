@@ -10,7 +10,7 @@ function handleNfcFromIntentFilter() {
     // addConstructor was finishing *before* deviceReady was complete and the
     // ndef listeners had not been registered.
     // It seems like there should be a better solution.
-    if (cordova.platformId === "android") {
+    if (cordova.platformId === "android" || cordova.platformId === "windows") {
         setTimeout(
             function () {
                 cordova.exec(
@@ -481,6 +481,10 @@ var nfc = {
     removeNdefListener: function (callback, win, fail) {
         document.removeEventListener("ndef", callback, false);
         cordova.exec(win, fail, "NfcPlugin", "removeNdef", []);
+    },
+
+    showSettings: function (win, fail) {
+        cordova.exec(win, fail, "NfcPlugin", "showSettings", []);
     }
 
 };

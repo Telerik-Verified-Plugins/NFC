@@ -1,3 +1,30 @@
+= 0.6.6 =
+Update Windows platforms (includes Windows Phone 8.1)
+ * tag event contains nested ndefMessage object #215
+ * support unformatted tags with addTagDiscoveredListener & removeTagDiscoveredListener #204
+ * implement showSettings #147
+ * better error messages when NFC is disabled #213
+ * use NDEF parsing and encoding code from www/phonegap-nfc.js (remove duplication)
+ * update documentation
+
+= 0.6.5 =
+Add nfc.showSettings for Android and BlackBerry 10 #147
+Fix package name for Blackberry 10
+
+= 0.6.4 =
+Fix Android compile issue #192
+
+= 0.6.3 =
+Drop support for Cordova 2.9 #192
+Move plugin to NPM #194
+
+= 0.6.2 =
+Add support for Windows Phone 8.1 and Windows 8.1 @jlkalberer #182
+Update share on BlackBerry 10.2 #172
+Fix callback for enabled on Android #169
+Fix documentation @lezardrouge #180
+Fix documentation @JohnMcLear #171
+
 = 0.6.1 =
 Add ndef.tnfToString Fixes #145
 Add ndef.androidApplicationRecord(packageName) Fixes #161
