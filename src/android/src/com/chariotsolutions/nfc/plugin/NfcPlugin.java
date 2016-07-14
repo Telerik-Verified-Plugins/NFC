@@ -763,9 +763,12 @@ public class NfcPlugin extends CordovaPlugin implements NfcAdapter.OnNdefPushCom
         }
 
     }
-	
-	//WORKAROUND: CordovaWebView.sendJavascript is deprecated and no longer works in Cordova 5 with pre KitKat devices.
+
     private void sendJavascript(final String js) {
-		webView.loadUrl("javascript:" + js);
-	}
+      getActivity().runOnUiThread(new Runnable() {
+        public void run() {
+          webView.loadUrl("javascript:" + js);
+        }
+      });
+    }
 }
